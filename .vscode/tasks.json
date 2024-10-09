@@ -9,7 +9,7 @@
                 "-g",
                 "${cwd}/*.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\BuildIndex.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"

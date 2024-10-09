@@ -30,6 +30,7 @@ void readfile(int docnum, map<string, int>& index)
         for(int i = 0; i < n; i++) b[i] = word[i];
         struct stemmer * z = create_stemmer();
         int res = stem(z, b, n-1);
+        b[res+1] = 0;
         free_stemmer(z);
 
         //storing in map "index"
@@ -57,7 +58,7 @@ void writefile(int docnum, map<string, int>& index)
 
 int main()
 {
-    for(int i = 1; i <= 17; i++)
+    for(int i = 1; i <= 1; i++)
     {
         map<string, int> index;
         readfile(i, index);
