@@ -2,23 +2,6 @@
 #include<string.h>
 #include"hash.hpp"
 
-struct WordNode
-{
-   char word[21];
-   int freq;
-};
-typedef struct WordNode WordNode;
-struct Node
-{
-   WordNode p;
-   struct Node *Next;
-};
-typedef struct Node Node;
-struct Hashtable
-{
-   Node *hash[26];
-};
-typedef struct Hashtable Hashtable;
 Hashtable *createHashTable()
 {
    Hashtable *newTable = (Hashtable *)malloc(sizeof(Hashtable));
@@ -50,6 +33,7 @@ void addWord(Hashtable *library, char *word)//add word in hash table, count is u
    {
       if (strcmp(current->p.word, word) == 0)//already in the hashtable
       {
+         current->p.freq++;
          free(newNode); //free the node
          return;
       }
@@ -90,9 +74,9 @@ int findword(Hashtable *library, char* word)//find word in hashtable
    }
    return -1;
 }
-void stem_tolower(char* word, int k)//Convert uppercase letters to lowercase letters.
+void stem_tolower(char* word, int length)//Convert uppercase letters to lowercase letters.
 {
-   for(int i=0;i<=k;i++)
+   for(int i=0;i<length;i++)
    {
       if(word[i]>='A'&&word[i]<='Z')
       {
