@@ -23,7 +23,7 @@ void addWord(Hashtable *library, char *word)//add word in hash table, count is u
 
    Node *newNode = (Node *)malloc(sizeof(Node));
    newNode->Next = NULL;
-   newNode->p.freq=0;
+   newNode->p.freq=1;
    strcpy(newNode->p.word, word);
 
    // 检查是否已经存在于链表中
